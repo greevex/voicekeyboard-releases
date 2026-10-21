@@ -11,7 +11,8 @@
 
 - **Windows 10/11 x64** — [VoiceKeyboard-Windows.zip](https://github.com/greevex/voicekeyboard-releases/releases/download/windows/VoiceKeyboard-Windows.zip):
   переносная версия. Распакуйте в любую папку и запустите `voicekeyboard.exe` (клавиатура) или `voicenotes.exe`
-  (заметки). Настройки и заметки — в папке `data` рядом; новую версию скачивайте отсюда же.
+  (заметки). Настройки и заметки — в папке `data` рядом. Обновляется сама: раз в полчаса проверяет этот репозиторий
+  и докачивает только изменившиеся файлы (служебный релиз `windows-files`), модели заново не качаются.
 - **Android 8+** — [VoiceKeyboard.apk](https://github.com/greevex/voicekeyboard-releases/releases/latest/download/VoiceKeyboard.apk):
   откройте файл на телефоне и разрешите установку из этого источника. Дальше приложение само проверяет этот
   репозиторий раз в несколько часов и ставит новые версии, когда вы не диктуете.
