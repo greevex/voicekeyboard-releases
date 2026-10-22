@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Voice Keyboard — голосовая клавиатура и голосовые заметки</title>
-<meta name="description" content="Диктовка в любое окно Windows и любое приложение Android с правкой голосом. Голосовые заметки: записи встреч в текст, итоги и задачи. Распознаёт прямо на устройстве.">
+<title>Voice Keyboard — голосовая клавиатура, голосовые заметки и «Стенограф»</title>
+<meta name="description" content="Диктовка в любое окно Windows и любое приложение Android с правкой голосом. Голосовые заметки: записи в текст, итоги и задачи. «Стенограф»: расшифровка встреч с говорящими по именам и итоги в нужном формате.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Voice Keyboard — голос вместо клавиатуры">
-<meta property="og:description" content="Диктовка в любое окно с правкой голосом и голосовые заметки: записи встреч в текст, итоги и задачи. Windows и Android, работает без интернета.">
+<meta property="og:description" content="Диктовка в любое окно с правкой голосом, голосовые заметки и «Стенограф» — встречи в текст с говорящими по именам, итоги и задачи. Windows и Android.">
 <meta property="og:image" content="https://greevex.github.io/voicekeyboard-releases/img/og.png">
 <meta property="og:url" content="https://greevex.github.io/voicekeyboard-releases/">
 <meta name="twitter:card" content="summary_large_image">
@@ -15,7 +15,7 @@
 <style>
 :root {
   --bg: #f6f7fb; --card: #fff; --ink: #15171c; --dim: #5b6172; --line: #e3e6ee;
-  --accent: #3a5bd9; --accent-ink: #fff; --soft: #e9eefc; --notes: #f08a24; --ok: #1f9d55;
+  --accent: #3a5bd9; --accent-ink: #fff; --soft: #e9eefc; --notes: #f08a24; --meet: #6b4ef0; --ok: #1f9d55;
   --shadow: 0 1px 2px rgba(20, 24, 40, .06), 0 12px 32px rgba(20, 24, 40, .08);
 }
 @media (prefers-color-scheme: dark) {
@@ -66,6 +66,7 @@ section.block { padding: 64px 0; }
 section.block + section.block { border-top: 1px solid var(--line); }
 .kicker { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
 .kicker.notes { color: var(--notes); }
+.kicker.meet { color: var(--meet); }
 h2 { font-size: clamp(26px, 3.4vw, 38px); line-height: 1.15; letter-spacing: -.01em; margin: 0 0 16px; }
 .sub { color: var(--dim); max-width: 720px; margin: 0 0 28px; }
 .split { display: grid; grid-template-columns: 1fr 1.15fr; gap: 48px; align-items: center; }
@@ -82,6 +83,7 @@ q { quotes: "«" "»"; font-style: italic; }
 .feature p { margin: 0; color: var(--dim); font-size: 15.5px; }
 .feature .ico { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--soft); margin-bottom: 14px; color: var(--accent); }
 .feature.notes .ico { color: var(--notes); background: color-mix(in srgb, var(--notes) 14%, transparent); }
+.feature.meet .ico { color: var(--meet); background: color-mix(in srgb, var(--meet) 14%, transparent); }
 .feature .ico svg { width: 22px; height: 22px; }
 .phones { display: flex; justify-content: center; gap: 22px; margin-top: 34px; }
 .phone { width: 270px; border-radius: 30px; padding: 9px; background: #1b1d22; box-shadow: var(--shadow); }
@@ -127,6 +129,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
     <nav>
       <a href="#keyboard">Клавиатура</a>
       <a href="#notes">Заметки</a>
+      <a href="#stenograf">Стенограф</a>
       <a href="#offline">Без интернета</a>
       <a class="go" href="#download">Скачать</a>
     </nav>
@@ -138,8 +141,8 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
     <div class="wrap">
       <h1>Голос вместо клавиатуры — <span>и встречи в текст</span></h1>
       <p class="lead">Voice Keyboard: диктовка в любое окно Windows и любое приложение Android, правка голосом на ходу.
-        «Голосовые заметки»: записи встреч и диктофона — в текст, итоги и задачи. Распознаёт прямо на вашем
-        устройстве, облако — по желанию.</p>
+        «Голосовые заметки»: записи встреч и диктофона — в текст, итоги и задачи. «Стенограф»: встреча — в текст
+        с говорящими по именам и итоги в нужном формате. Распознаёт прямо на вашем устройстве, облако — по желанию.</p>
       <div class="cta">
         <a class="btn primary" href="https://github.com/greevex/voicekeyboard-releases/releases/download/windows/VoiceKeyboard-Windows.zip">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3zm0 13L10.5 19.6v-7H3zm8.4 1.2L21 21v-8.4h-9.6zm0-15.4v7.2H21V3z"/></svg>
@@ -150,7 +153,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
           <span><b>Скачать для Android</b><small>Android 8+ · APK</small></span>
         </a>
       </div>
-      <p class="meta">Бесплатно · по-русски · в одном файле — обе программы: клавиатура и заметки</p>
+      <p class="meta">Бесплатно · по-русски · в одном файле — три программы: клавиатура, заметки и «Стенограф»</p>
       <div class="shot"><img src="img/win-notes.webp" width="1800" height="1170" alt="Окно «Голосовые заметки» на Windows: список заметок, итоги встречи и текст с привязкой к звуку"></div>
     </div>
   </section>
@@ -201,6 +204,29 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
     </div>
   </section>
 
+  <section class="block" id="stenograf">
+    <div class="wrap">
+      <div class="kicker meet">Стенограф</div>
+      <h2>Встреча → кто что сказал → итоги в нужном формате</h2>
+      <p class="sub">Третье приложение в той же установке — для встреч, где важно, кто что сказал и о чём договорились. Расшифровывает облако (Gemini через ваш ключ OpenRouter): около $0,4 за час встречи.</p>
+      <div class="grid3">
+        <div class="feature meet"><div class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+          <h3>Говорящие по именам</h3><p>Участники подсказаны по началу записи и по прошлым встречам; переименовали одного — он переименован везде. Часовая встреча расшифровывается частями параллельно, имена держатся по всей записи.</p></div>
+        <div class="feature meet"><div class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-9 14H7v-2h3zm0-4H7v-2h3zm0-4H7V7h3zm7 8h-5v-2h5zm0-4h-5v-2h5zm0-4h-5V7h5z"/></svg></div>
+          <h3>Итоги в нужном формате</h3><p>Договорённости, сводка, постмит, протокол, задачи, интервью — или свой шаблон и своя инструкция. Каждый пункт — со ссылкой на место записи: щелчок, и слышно, как это прозвучало.</p></div>
+        <div class="feature meet"><div class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+          <h3>Проверка итогов</h3><p>Другая модель независимо выписывает главное и сверяет с итогами: пропущенное добавлено, неточное поправлено — и видно, что именно.</p></div>
+        <div class="feature meet"><div class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 18h2v-2h-2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/></svg></div>
+          <h3>Спросить по встрече</h3><p>«Что решили про оплату?», «Кто обещал макеты?» — ответ по расшифровке со ссылками на места. Непонятное место — «Переслушать» моделью посильнее.</p></div>
+        <div class="feature meet"><div class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg></div>
+          <h3>База знаний</h3><p>Термины, люди и проекты: имена и названия пишутся правильно с первой встречи проекта, а исправленное слово учится само.</p></div>
+        <div class="feature meet"><div class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div>
+          <h3>Word, PDF, Markdown</h3><p>Итоги и расшифровка — одним файлом для письма или Telegram. На Windows и на Android, записи — из Telegram, диктофона, видео.</p></div>
+      </div>
+      <div class="shot"><img src="img/win-stenograf.webp" width="1800" height="1152" loading="lazy" alt="Окно «Стенограф» на Windows: итоговые договорённости встречи с проверкой и ссылками на места записи"></div>
+    </div>
+  </section>
+
   <section class="block" id="offline">
     <div class="wrap">
       <div class="kicker">Без интернета</div>
@@ -240,7 +266,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
           <h3><svg viewBox="0 0 24 24" fill="#3ddc84"><path d="M17.6 9.48l1.84-3.18a.38.38 0 0 0-.66-.38l-1.86 3.22a11.4 11.4 0 0 0-9.84 0L5.22 5.92a.38.38 0 0 0-.66.38L6.4 9.48A10.8 10.8 0 0 0 1 18h22a10.8 10.8 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>Android 8+</h3>
           <ol>
             <li>Скачайте APK на телефон и откройте его; разрешите установку из этого источника.</li>
-            <li>На экране появятся две иконки: <b>Voice Keyboard</b> и <b>Голосовые заметки</b>.</li>
+            <li>На экране появятся три иконки: <b>Voice Keyboard</b>, <b>Голосовые заметки</b> и <b>Стенограф</b>.</li>
             <li>Кнопке микрофона поверх приложений нужны «Специальные возможности» — приложение проведёт по шагам.</li>
           </ol>
           <p class="note">Дальше приложение обновляется само — когда вы не диктуете.</p>
@@ -257,7 +283,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: 
 
 <footer>
   <div class="wrap">
-    <span>Voice Keyboard и «Голосовые заметки» — для Windows и Android</span>
+    <span>Voice Keyboard, «Голосовые заметки» и «Стенограф» — для Windows и Android</span>
     <a href="https://github.com/greevex/voicekeyboard-releases/releases">Все версии и что в них нового</a>
   </div>
 </footer>
